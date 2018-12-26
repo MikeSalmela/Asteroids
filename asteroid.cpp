@@ -59,6 +59,9 @@ int Ui::Asteroid::phaseWidth()
     {
         return 25;
     }
+    // in case of an error
+    phase_ = 2;
+    return 75;
 }
 
 

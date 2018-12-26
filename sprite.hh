@@ -70,7 +70,6 @@ protected:
     SDL_Rect hitbox_;
     SDL_Rect imageBox_;
     SDL_Texture* texture_;
-    SDL_Renderer* renderer_;
 
     SDL_Rect* getHitbox();
 
@@ -119,6 +118,8 @@ protected:
 
     // Sprite status
     bool alive_ = true;
+
+    SDL_Renderer* renderer_;
 
 };
 }

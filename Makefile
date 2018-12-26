@@ -1,6 +1,6 @@
 CC = g++
 LINKERFLAG = -lSDL2
-
+COMPILERFLAGS = -Wall
 OBJS = 	main.cpp \
 		sprite.cpp \
 		mainwindow.cpp \
@@ -13,4 +13,4 @@ OBJS = 	main.cpp \
 NAME = asteroids
 
 all: $(OBJS)
-	$(CC) $(OBJS) $(LINKERFLAG) -o $(NAME)
+	$(CC) $(COMPILERFLAGS) $(OBJS) $(LINKERFLAG) -o $(NAME)

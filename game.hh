@@ -68,14 +68,14 @@ private:
      */
     void splitAsteroid(Ui::Asteroid* splitted);
 
-    SDL_Renderer* renderer_;
     SDL_Window* window_;
+    SDL_Renderer* renderer_;
     int width_;
     int height_;
 
     int points_ = 0;
 
-    int asteroidCount_ = 2;
+    unsigned int asteroidCount_ = 2;
     bool running_ = true;
     SDL_Event event_;
 

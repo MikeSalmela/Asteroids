@@ -41,7 +41,7 @@ bool Ui::Bullet::collides(Sprite* sprite) const
     {
         return false;
     }
-    Sprite::collides(sprite);
+    return Sprite::collides(sprite);
 }
 
 bool Ui::Bullet::isAlive() const
