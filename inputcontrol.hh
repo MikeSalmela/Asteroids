@@ -5,14 +5,23 @@
 
 namespace Engine
 {
+    /**
+     * @brief Handles user inputs
+     */
 class InputContorl
 {
 public:
     InputContorl();
     
-    // Updates keypresses, returns false if user input closes window
+    /**
+     * @brief update key states to current status
+     * @return false, if user has tried to close the window 
+     */
     bool update();
 
+    /**
+     * @brief returns true if the button is pressed 
+     */
     bool left();
     bool right();
     bool up();

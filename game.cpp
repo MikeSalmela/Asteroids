@@ -13,24 +13,25 @@ Ui::Game::Game( SDL_Window* window,
 {
 
     srand(time(NULL));
-    
-    inputControl_ = std::make_unique<Engine::InputContorl>();
+    createObjects();    
+}
 
+void Ui::Game::createObjects()
+{
+    inputControl_ = std::make_unique<Engine::InputContorl>();
 
     ship_ = std::make_unique<Ui::Ship>
         (50, 50, width_, height_, 
         renderer_, inputControl_.get());
 }
+    
 
 void Ui::Game::start()
 {
     
     while(running_)
     {
-        SDL_RenderClear(renderer_);
         gameLoop();
-        updateUi();
-        SDL_Delay(25);
     }
 }
 
@@ -64,8 +65,11 @@ void Ui::Game::checkCollisions()
     {
         if(asteroid->collides(ship_.get()))
         {
+            if(ship_->isAlive())
+            {
+                std::cout << points_ << std::endl;
+            }
             ship_->hit();
-            std::cout << points_ << std::endl;
         }
     }
     // Check for bullet colliding with an asteroid
@@ -128,7 +132,11 @@ void Ui::Game::makeAsteroids()
 
 void Ui::Game::gameLoop()
 {
+
+    SDL_RenderClear(renderer_);
     running_ = inputControl_->update();
     moveAndDraw();
     makeAsteroids();
+    updateUi();
+    SDL_Delay(25);
 }

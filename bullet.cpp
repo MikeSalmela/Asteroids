@@ -34,8 +34,9 @@ void Ui::Bullet::hit()
     alive_ = false;
 }
 
-bool Ui::Bullet::collides(Sprite* sprite)
+bool Ui::Bullet::collides(Sprite* sprite) const
 {
+    // A dead bullet cannot hit anything
     if(!alive_)
     {
         return false;
@@ -43,7 +44,7 @@ bool Ui::Bullet::collides(Sprite* sprite)
     Sprite::collides(sprite);
 }
 
-bool Ui::Bullet::isAlive()
+bool Ui::Bullet::isAlive() const
 {
     return alive_;
 }
